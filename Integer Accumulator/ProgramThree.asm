@@ -1,8 +1,7 @@
 TITLE Program Three   (ProgramThree.asm)
 
-; Author: Alexis Doyle
+; Author: Alexis
 ; Last Modified: Jan 31, 2021
-; OSU email address: Doylalex@oregonstate.edu
 ; Course number/section: cs 127 001 W21
 ; Assignment Number:    Three        Due Date: Sunday, week 4
 ; Description: prompt the user for there name and greet them, state the directions
