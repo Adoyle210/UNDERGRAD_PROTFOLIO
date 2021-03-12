@@ -2,7 +2,7 @@ TITLE Program One     (ProgramOne.asm)
 
 ; Author: Alexis Doyle
 ; Last Modified: jan 16
-; Course number/section: cs 127 001 W21
+; Course number/section: cs 271 001 W21
 ; Assignment Number:      project 1        Due Date: sunday, week 2
 ; Description: display name and program title, display user instructions, prompt to enter two numbers, calculate and  display terminating message 
 
