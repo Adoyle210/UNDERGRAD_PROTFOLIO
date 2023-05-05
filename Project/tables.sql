@@ -7,11 +7,13 @@ DROP TABLE IF EXISTS type;
 -- 2) i added id as a PK bc i think it make more sense 
 CREATE TABLE type (            
     id int NOT NULL AUTO_INCREMENT,    
-    fire varchar(25) NOT NULL,
-    Water varchar(25) NOT NULL,
-    grass varchar(25) NOT NULL,
-    normal varchar(25) NOT NULL,
-    flying varchar(25) NOT NULL,
+    fire varchar(25) DEFAULT 'false',
+    Water varchar(25) DEFAULT 'false',
+    grass varchar(25) DEFAULT 'false',
+    normal varchar(25) DEFAULT 'false',
+    bug varchar(25) DEFAULT 'false',
+    poison varchar(25) DEFAULT 'false',
+    flying varchar(25) DEFAULT 'false',
     PRIMARY KEY (id)
 );
 
@@ -20,8 +22,8 @@ DROP TABLE IF EXISTS region;
 -- 1) i added id bc i think it make more sense 
 CREATE TABLE region (
     id int NOT NULL AUTO_INCREMENT,     
-    kanto varchar(25) NOT NULL,
-    johto varchar(25) NOT NULL,
+    kanto varchar(25) DEFAULT 'false',
+    johto varchar(25) DEFAULT 'false',
     PRIMARY KEY (id)
 );
 
@@ -36,17 +38,17 @@ CREATE TABLE region (
 DROP TABLE IF EXISTS pokemon;
 
 CREATE TABLE pokemon (
-    name varchar(25) NOT NULL,
-    ptype varchar(25) NOT NULL,     
+    pname varchar(25) NOT NULL,
+    ptype int NOT NULL,     
     pokedexID int NOT NULL,
-    regionID varchar(25) NOT NULL  
+    regionID int NOT NULL  
 );
 
 DROP TABLE IF EXISTS trainer;
 
 CREATE TABLE trainer (
     trainerID int(11) NOT NULL AUTO_INCREMENT,   
-    name varchar(25) NOT NULL,
+    tname varchar(25) NOT NULL,
     wins int NOT NULL,
     losses int NOT NULL
 );
