@@ -1,5 +1,4 @@
 -- set up all the tables in the database 
-
 DROP TABLE IF EXISTS type;
  
 CREATE TABLE type (            
@@ -50,8 +49,9 @@ CREATE TABLE trainerHas (
     trainerID int NOT NULL,
     pokedexID int NOT NULL,
     pokemonID int NOT NULL AUTO_INCREMENT,
+    PRIMARY Key (pokemonID),
     FOREIGN KEY (trainerID) REFERENCES trainer(trainerID),
-    FOREIGN KEY (pokedexID) REFERENCES pokemon(pokedexID)
+    FOREIGN KEY (pokedexID) REFERENCES pokedex(pokedexID)
 );
 
 -- all the data we insert into the tables
