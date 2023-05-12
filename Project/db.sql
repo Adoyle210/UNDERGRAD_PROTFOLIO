@@ -68,27 +68,28 @@ INSERT INTO type (normal) VALUES ('true');
 INSERT INTO region (kanto) VALUES ('true');
 INSERT INTO region (johto) VALUES ('true');
 
+
 INSERT INTO pokedex (pname, ptype, pokedexID, regionID) 
-    VALUES ('bulbasaur', (SELECT id FROM type WHERE grass = 'true' AND poison = 'true'), 1, (SELECT id FROM region WHERE kanto = 'true')),
-        ('ivysaur', (SELECT id FROM type WHERE grass = 'true' AND poison = 'true'), 2, (SELECT id FROM region WHERE kanto = 'true')),
-        ('venusaur', (SELECT id FROM type WHERE grass = 'true' AND poison = 'true'), 3, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('charmander', (SELECT id FROM type WHERE fire = 'true'), 4, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('charmeleon', (SELECT id FROM type WHERE fire = 'true') ,5, (SELECT id FROM region WHERE kanto = 'true')),
-        ('charizard', (SELECT id FROM type WHERE fire = 'true' AND flying = 'true') ,6, (SELECT id FROM region WHERE kanto = 'true')),
-        ('squirtle', (SELECT id FROM type WHERE water = 'true') ,7, (SELECT id FROM region WHERE kanto = 'true')),
-        ('wartortle', (SELECT id FROM type WHERE water = 'true') ,8,(SELECT id FROM region WHERE kanto = 'true')),
-        ('blastoise', (SELECT id FROM type WHERE water = 'true'), 9,(SELECT id FROM region WHERE kanto = 'true')),
-        ('caterpir', (SELECT id FROM type WHERE bug = 'true'), 10, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('metapod',  (SELECT id FROM type WHERE bug = 'true'), 11, (SELECT id FROM region WHERE kanto = 'true')),
-        ('butterfree', (SELECT id FROM type WHERE bug = 'true' AND flying = 'true'), 12, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('weedle', (SELECT id FROM type WHERE bug = 'true' AND poison = 'true'), 13, (SELECT id FROM region WHERE kanto = 'true')),
-        ('kakuna', (SELECT id FROM type WHERE bug = 'true' AND poison = 'true'), 14, (SELECT id FROM region WHERE kanto = 'true')),
-        ('beedrill', (SELECT id FROM type WHERE bug = 'true' AND poison = 'true'), 15, (SELECT id FROM region WHERE kanto = 'true')),
-        ('pidgey', (SELECT id FROM type WHERE normal = 'true' AND flying = 'true'), 16, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('pidgeotto', (SELECT id FROM type WHERE normal = 'true' AND flying = 'true'), 17, (SELECT id FROM region WHERE kanto = 'true')),
-        ('pidgeot', (SELECT id FROM type WHERE normal = 'true' AND flying = 'true'), 18, (SELECT id FROM region WHERE kanto = 'true')),
-        ('rattata', (SELECT id FROM type WHERE normal = 'true'), 19, (SELECT id FROM region WHERE kanto = 'true')),
-        ('raticate', (SELECT id FROM type WHERE normal = 'true'), 20,(SELECT id FROM region WHERE kanto = 'true')); 
+    VALUES ('bulbasaur', 1, 1, (SELECT id FROM region WHERE kanto = 'true')),
+        ('ivysaur', 1, 2, (SELECT id FROM region WHERE kanto = 'true')),
+        ('venusaur', 1, 3, (SELECT id FROM region WHERE kanto = 'true')), 
+        ('charmander', 2, 4, (SELECT id FROM region WHERE kanto = 'true')), 
+        ('charmeleon', 2 ,5, (SELECT id FROM region WHERE kanto = 'true')),
+        ('charizard', 3 ,6, (SELECT id FROM region WHERE kanto = 'true')),
+        ('squirtle', 4 ,7, (SELECT id FROM region WHERE kanto = 'true')),
+        ('wartortle', 4 ,8,(SELECT id FROM region WHERE kanto = 'true')),
+        ('blastoise', 4, 9,(SELECT id FROM region WHERE kanto = 'true')),
+        ('caterpir', 5, 10, (SELECT id FROM region WHERE kanto = 'true')), 
+        ('metapod',  5, 11, (SELECT id FROM region WHERE kanto = 'true')),
+        ('butterfree', 6, 12, (SELECT id FROM region WHERE kanto = 'true')), 
+        ('weedle', 7, 13, (SELECT id FROM region WHERE kanto = 'true')),
+        ('kakuna', 7, 14, (SELECT id FROM region WHERE kanto = 'true')),
+        ('beedrill', 7, 15, (SELECT id FROM region WHERE kanto = 'true')),
+        ('pidgey', 8, 16, (SELECT id FROM region WHERE kanto = 'true')), 
+        ('pidgeotto', 8, 17, (SELECT id FROM region WHERE kanto = 'true')),
+        ('pidgeot', 8, 18, (SELECT id FROM region WHERE kanto = 'true')),
+        ('rattata', 9, 19, (SELECT id FROM region WHERE kanto = 'true')),
+        ('raticate', 9, 20,(SELECT id FROM region WHERE kanto = 'true')); 
 
 INSERT INTO trainer (tname, wins, losses) 
     VALUES ('Ash', 5, 2),
