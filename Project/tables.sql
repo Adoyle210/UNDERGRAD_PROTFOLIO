@@ -35,9 +35,9 @@ CREATE TABLE region (
 -- 4) i think added a constraint of a unique name is a good idea
 -- so we dont have duplicates of pokemon in the pokedex
 
-DROP TABLE IF EXISTS pokemon;
+DROP TABLE IF EXISTS pokedex;
 
-CREATE TABLE pokemon (
+CREATE TABLE pokedex (
     pname varchar(25) NOT NULL,
     ptype int NOT NULL,     
     pokedexID int NOT NULL,
