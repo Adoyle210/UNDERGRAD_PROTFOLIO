@@ -23,9 +23,10 @@ CREATE TABLE region (
     PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS pokemon;
 
-CREATE TABLE pokemon (
+DROP TABLE IF EXISTS pokedex;
+
+CREATE TABLE pokedex (
     pname varchar(25) NOT NULL,
     ptype int NOT NULL,     
     pokedexID int NOT NULL,
