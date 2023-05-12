@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>People</title>
+<title>Trainer</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript">
 		function showform(dowhat) {
@@ -50,7 +50,7 @@
 <body onload="browsePeople()">
 <h1>People</h1>
 
-[ <a href="planets.html">Planets</a> | <a href="people.html">People</a> | Certifications | People Certified ]
+[ <a href="pokedex.html">Planets</a> | <a href="trainer.html">Trainer</a> | Certifications | People Certified ]
 
 <div id="browse">
 <p><a href="#" onClick="showAll()">Display all forms</a> </p>
@@ -58,11 +58,10 @@
   <tr>
     <th><a href="#" onClick="newPerson()">New</a></th>
     <th></th>
-    <th>id</th>
-    <th>fname</th>
-    <th>lname</th>
-    <th>homeworld</th>
-    <th>age</th>
+    <th>trainerID</th>
+    <th>tname</th>
+    <th>wins</th>
+    <th>losses</th>
   </tr>
   <tr>
     <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
@@ -98,7 +97,7 @@
     <form method="POST" id="addPlanet">
         <legend><strong>Add Person</strong></legend>
           <fieldset class="fields">
-            <label> first name </label> <input type="text" name="fname">
+            <label> first name </label> <input type="text" name="tname">
             <label> last name </label> <input type="text" name="lname">
             <label> Homeworld </label> <select name="homeworld">
             	<option value="0">&nbsp;</option>
@@ -119,8 +118,8 @@
           <fieldset class="fields">
           <input type="hidden" name="personID" id="updatepersonID" value="1">
           <label> ID: </label> 1
-            <label> first name </label> <input type="text" name="fname" value="William">
-            <label> last name </label> <input type="text" name="lname" value="Adama">
+            <label> first name </label> <input type="text" name="trainerID" value="1">
+            <label> last name </label> <input type="text" name="tname" value="Ash">
             <label> Homeworld </label> <select name="homeworld">
             	<option value="0">&nbsp;</option>
                 <option value="1" selected>Gemenon</option>
