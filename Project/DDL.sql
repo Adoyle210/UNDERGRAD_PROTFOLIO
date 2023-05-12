@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS type;
 CREATE TABLE type (            
     id int NOT NULL AUTO_INCREMENT,    
     fire varchar(25) DEFAULT 'false',
-    Water varchar(25) DEFAULT 'false',
+    water varchar(25) DEFAULT 'false',
     grass varchar(25) DEFAULT 'false',
     normal varchar(25) DEFAULT 'false',
     bug varchar(25) DEFAULT 'false',
@@ -67,7 +67,7 @@ INSERT INTO type (normal) VALUES ('true');
 
 INSERT INTO region (kanto) VALUES ('true');
 INSERT INTO region (johto) VALUES ('true');
-
+INSERT INTO region (kanto, johto) VALUES ('true', 'true');
 
 INSERT INTO pokedex (pname, ptype, pokedexID, regionID) 
     VALUES ('bulbasaur', 1, 1, (SELECT id FROM region WHERE kanto = 'true')),
@@ -90,6 +90,8 @@ INSERT INTO pokedex (pname, ptype, pokedexID, regionID)
         ('pidgeot', 8, 18, (SELECT id FROM region WHERE kanto = 'true')),
         ('rattata', 9, 19, (SELECT id FROM region WHERE kanto = 'true')),
         ('raticate', 9, 20,(SELECT id FROM region WHERE kanto = 'true')); 
+
+
 
 INSERT INTO trainer (tname, wins, losses) 
     VALUES ('Ash', 5, 2),
