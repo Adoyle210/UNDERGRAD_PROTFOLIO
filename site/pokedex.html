@@ -7,7 +7,21 @@
 <body>
 <h1>POKEDEX</h1>
 
-[ <a href="pokedex.html">pokedex</a> | <a href="trainer.html">trainers</a> | <a href="trainerHas.html">trainer has</a> | <a href="type.html"> type </a> ]
+<div class="navbar">
+  <a href="pokedex.html">pokedex</a>
+  <a href="trainer.html">trainers</a>
+  <a href="trainerHas.html">trainer has</a>
+  <div class="dropdown">
+    <button class="dropbtn">Search by...
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="type.html"> type </a>
+      <a href="region.html"> region </a>
+    </div>
+  </div>
+</div>
+
 <div id="browse" style="display: block">
 <p><strong>Browse Pokedex</strong></p>
 <table>
