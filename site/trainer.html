@@ -11,30 +11,42 @@
 			if (dowhat == 'insert'){
 				document.getElementById('browse').style.display = 'none';
 				document.getElementById('insert').style.display = 'block';
+        document.getElementById('insertpok').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+      else if (dowhat == 'insertpok'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+        document.getElementById('insertpok').style.display = 'block';
 				document.getElementById('update').style.display = 'none';
 				document.getElementById('delete').style.display = 'none';
 			}
 			else if (dowhat == 'update'){
 				document.getElementById('browse').style.display = 'none';
 				document.getElementById('insert').style.display = 'none';
+        document.getElementById('insertpok').style.display = 'none';
 				document.getElementById('update').style.display = 'block';
 				document.getElementById('delete').style.display = 'none';
 			}
 			else if (dowhat == 'delete'){
 				document.getElementById('browse').style.display = 'none';
 				document.getElementById('insert').style.display = 'none';
+        document.getElementById('insertpok').style.display = 'none';
 				document.getElementById('update').style.display = 'none';
 				document.getElementById('delete').style.display = 'block';
 			}
       else if (dowhat == 'all'){
 				document.getElementById('browse').style.display = 'block';
 				document.getElementById('insert').style.display = 'block';
+        document.getElementById('insertpok').style.display = 'block';
 				document.getElementById('update').style.display = 'block';
 				document.getElementById('delete').style.display = 'block';
 			}
 			else { //by default display browse
 				document.getElementById('browse').style.display = 'block';
 				document.getElementById('insert').style.display = 'none';
+        document.getElementById('insertpok').style.display = 'none';
 				document.getElementById('update').style.display = 'none';
 				document.getElementById('delete').style.display = 'none';
 			}
@@ -104,38 +116,59 @@
 <p>&nbsp;</p>
 </div> <!-- browse -->
 <div id="insert">
-    <form method="POST" id="addPlanet">
-        <legend><strong>Add Person</strong></legend>
+    <form method="POST" id="addTrainer">
+        <legend><strong>Add Trainer</strong></legend>
           <fieldset class="fields">
-            <label> Trainer ID </label> <input type="text" name="trainerID">
-            <label> Trainer Name </label> <input type="text" name="tname">
-            <label> Wins </label> <select name="wins">
-            	<option value="0">&nbsp;</option>
-                <option value="1">Gemenon</option>
-                <option value="2">Leonis</option>
-                <option value="3">Caprica</option>
+            <label> Trainer Name </label> <select name="tname">
+                <option value="0">&nbsp;</option>
+                <option value="1">Ash</option>
+                <option value="2">Misty</option>
+                <option value="3">Broc</option>
                 </select>
+            <label> Wins </label> <input type="type" name="wins">
+            <label> loss </label> <input type="text" name="loss">
       </fieldset>
-          <input class="btn" type="submit" id="addPerson" value="Add Person">
+          <input class="btn" type="submit" id="addTrainer" value="Add Trainer">
           <input class="btn" type="button" value="cancel" onClick="browsePeople()">
 	</form> 
 </div><!-- insert -->
+<div id="insertpok">
+  <form method="POST" id="addTrainerHas">
+      <legend><strong>Add Trainers Pokemon</strong></legend>
+        <fieldset class="fields">
+          <label> Trainer Name </label> <select name="tname">
+            <option value="0">&nbsp;</option>
+            <option value="1">Ash</option>
+            <option value="2">Misty</option>
+            <option value="3">Broc</option>
+          </select>
+          <label> Pokemon Name </label> <select name="tname">
+            <option value="0">&nbsp;</option>
+            <option value="1">bulbasaur</option>
+            <option value="2">charmander</option>
+            <option value="3">squirtle</option>
+          </select>
+        </fieldset>
+        <input class="btn" type="submit" id="addTrainerHas" value="Add TrainerHas">
+        <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+</form> 
+</div><!-- insert -->
 <p>&nbsp;</p>
 <div id="update">
-    <form method="POST" id="UpdatePerson">
-        <legend><strong>Update Person</strong></legend>
+    <form method="POST" id="UpdateTrainer">
+        <legend><strong>Update Trainer</strong></legend>
           <fieldset class="fields">
           <input type="hidden" name="personID" id="updatepersonID" value="1">
           <label> ID: </label> 1
             <label> Trainer ID</label> <input type="text" name="trainerID" value="1">
-            <label> Trainer Name </label> <input type="text" name="tname" value="Ash">
-            <label> Wins </label> <select name="homeworld">
-            	<option value="0">&nbsp;</option>
-                <option value="1" selected>Gemenon</option>
-                <option value="2">Leonis</option>
-                <option value="3">Caprica</option>
-                </select>
-            <label> age </label> <input type="text" name="age" value="61">
+            <label> Trainer Name </label> <select name="tname">
+              <option value="0">&nbsp;</option>
+              <option value="1">Ash</option>
+              <option value="2">Misty</option>
+              <option value="3">Broc</option>
+            </select>
+            <label> Wins </label> <input type="type" name="wins">
+            <label> loss </label> <input type="text" name="loss">
       </fieldset>
           <input class="btn" type="submit" id="UpdateSavePerson" value="Save Update Person">
           <input class="btn" type="button" value="cancel" onClick="browsePeople()">
@@ -143,15 +176,14 @@
 </div><!-- update -->
 <p>&nbsp;</p>
 <div id="delete" style="display: block">
-  <form method="POST" id="deletePerson">
-      <legend><strong>Delete Person</strong></legend>
-          <fieldset class="fields">
+  <form method="POST" id="deleteTrainer">
+      <legend><strong>Delete Trainer</strong></legend>
+        <fieldset class="fields">
           <p>Are you sure you wish to delete the following?</p>
           <input type="hidden" name="personID" id="deletepersonID" value="1">
           <label><strong>ID:</strong></label> 1
-            <label> <strong>Name</strong> </label> William Adama
-            
-    </fieldset>
+          <label> <strong>Name</strong> </label> Ash    
+        </fieldset>
     <input class="btn" type="submit" id="DeletePerson" value="Delete Person">
           <input class="btn" type="button" value="cancel" onClick="browsePeople()">
   </form> 

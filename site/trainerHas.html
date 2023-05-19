@@ -1,53 +1,9 @@
 <html>
 <head>
-<title>TRAINER HAS</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript">
-		function showform(dowhat) {
-			/*
-			* four DIVS: browse, insert, update, delete
-			* this function sets one visible the others not
-			*/
-			if (dowhat == 'insert'){
-				document.getElementById('browse').style.display = 'none';
-				document.getElementById('insert').style.display = 'block';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'none';
-			}
-			else if (dowhat == 'update'){
-				document.getElementById('browse').style.display = 'none';
-				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'block';
-				document.getElementById('delete').style.display = 'none';
-			}
-			else if (dowhat == 'delete'){
-				document.getElementById('browse').style.display = 'none';
-				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'block';
-			}
-      else if (dowhat == 'all'){
-				document.getElementById('browse').style.display = 'block';
-				document.getElementById('insert').style.display = 'block';
-				document.getElementById('update').style.display = 'block';
-				document.getElementById('delete').style.display = 'block';
-			}
-			else { //by default display browse
-				document.getElementById('browse').style.display = 'block';
-				document.getElementById('insert').style.display = 'none';
-				document.getElementById('update').style.display = 'none';
-				document.getElementById('delete').style.display = 'none';
-			}
-		}
-    function newPerson() { showform('insert'); }
-    function updatePerson(pid) { showform('update'); }
-    function deletePerson(pid) { showform ('delete'); }
-    function browsePeople() { showform ('browse'); }
-    function showAll() { showform ('all'); }
-</script>
+  <title>TRAINER HAS</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body onload="browsePeople()">
 <h1>TRAINER HAS</h1>
 
 <div class="navbar">
@@ -65,8 +21,7 @@
   </div>
 </div>
 
-<div id="browse">
-<p><a href="#" onClick="showAll()">Display all forms</a> </p>
+<p><strong>pokemon trainers have</strong></p>
 <table>
   <tr>
     <th><a href="#" onClick="newPerson()">New</a></th>
@@ -97,61 +52,3 @@
     <td>3</td>
   </tr>
 </table>
-<p>&nbsp;</p>
-</div> <!-- browse -->
-<div id="insert">
-    <form method="POST" id="addPlanet">
-        <legend><strong>Add Person</strong></legend>
-          <fieldset class="fields">
-            <label> Trainer ID </label> <input type="text" name="trainerID">
-            <label> Pokedex ID </label> <input type="text" name="pokedexID">
-            <label> Pokemon ID </label> <select name="pokedexID">
-            	<option value="0">&nbsp;</option>
-                <option value="1">Gemenon</option>
-                <option value="2">Leonis</option>
-                <option value="3">Caprica</option>
-                </select>
-      </fieldset>
-          <input class="btn" type="submit" id="addPerson" value="Add Person">
-          <input class="btn" type="button" value="cancel" onClick="browsePeople()">
-	</form> 
-</div><!-- insert -->
-<p>&nbsp;</p>
-<div id="update">
-    <form method="POST" id="UpdatePerson">
-        <legend><strong>Update Person</strong></legend>
-          <fieldset class="fields">
-          <input type="hidden" name="personID" id="updatepersonID" value="1">
-          <label> ID: </label> 1
-            <label> Tainer ID</label> <input type="text" name="trainerID" value="1">
-            <label> Pokedex ID </label> <input type="text" name="pokedexID" value="1">
-            <label> Pokemon ID </label> <select name="1">
-            	<option value="0">&nbsp;</option>
-                <option value="1" selected>Gemenon</option>
-                <option value="2">Leonis</option>
-                <option value="3">Caprica</option>
-                </select>
-            <label> age </label> <input type="text" name="age" value="61">
-      </fieldset>
-          <input class="btn" type="submit" id="UpdateSavePerson" value="Save Update Person">
-          <input class="btn" type="button" value="cancel" onClick="browsePeople()">
-	</form> 
-</div><!-- update -->
-<p>&nbsp;</p>
-<div id="delete" style="display: block">
-  <form method="POST" id="deletePerson">
-      <legend><strong>Delete Person</strong></legend>
-          <fieldset class="fields">
-          <p>Are you sure you wish to delete the following?</p>
-          <input type="hidden" name="personID" id="deletepersonID" value="1">
-          <label><strong>ID:</strong></label> 1
-            <label> <strong>Name</strong> </label> William Adama
-            
-    </fieldset>
-    <input class="btn" type="submit" id="DeletePerson" value="Delete Person">
-          <input class="btn" type="button" value="cancel" onClick="browsePeople()">
-  </form> 
-</div><!-- delete -->
-
-</body>
-</html>
