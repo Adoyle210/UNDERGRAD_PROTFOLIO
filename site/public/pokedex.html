@@ -24,16 +24,14 @@
 
 <div id="browse" style="display: block">
 <p><strong>Browse Pokedex</strong></p>
-<table>
+<table id="pokedexTable">
   <tr>
-    <th><a href="#">New</a></th>
-    <th></th>
     <th>Pokemon Name</th>
     <th>Pokemon Type</th>
     <th>Pokedex ID</th>
     <th>Region ID</th>
   </tr>
-  <tr>
+  <!-- <tr>
     <td><a href="#">Edit</a></td>
     <td><a href="#">Delete</a></td>
     <td>charmander</td>
@@ -56,7 +54,7 @@
     <td>3</td>
     <td >7</td>
     <td>2</td>
-  </tr>
+  </tr> -->
 </table>
 <p>&nbsp;</p>
 </div> <!-- browse -->
@@ -64,14 +62,13 @@
     <form id="addPokedex">
         <legend><strong>Add to Pokedex</strong></legend>
           <fieldset class="fields">
-            <label> Pokemon Name: </label> <input type="text" name="pname">
-            <label> Pokemon Type: </label> <input type="text" name="ptype">
-            <label> Pokedex ID: </label> <input type="text" name="pokedexID">
-            <label> Region ID: </label> <input type="text" name="regionID">
+            <label for="pnameInput"> Pokemon Name: </label> <input type="text" id="pname" required>
+            <label for="ptypeInput"> Pokemon Type: </label> <input type="text" id="ptype" required>
+            <label for="regionInput"> Region ID: </label> <input type="text" id="regionID" required>
           </fieldset>
-          <input class="btn" type="submit" id="addPlanet" value="Add">
-          <input class="btn" type="button" value="cancel">
-	</form> <!--add new planet-->
+          <button type="submit">Add To Pokedex</button>
+          <button type="cancel">Cancel</button>
+	</form> 
 </div><!-- insert -->
 
 <p>&nbsp;</p>
@@ -79,27 +76,23 @@
   <form id="updatePokedex">
       <legend><strong>Update Pokedex</strong></legend>
           <fieldset class="fields">
-          <!-- <label>ID:</label> 1 -->
-            <label> Pokemon Name: </label> <input type="text" value=" " name=" ">
-            <label> Pokemon Type: </label> <input type="text"  name=" " value=" ">
-            <label> Pokedex ID: </label> <input type="text" name=" " value=" ">
-            <label> Region ID: </label> <input type="text" name=" " value=" ">
+            <label for="pnameInput"> Pokemon Name: </label> <input type="text" id="pname" required>
+            <label for="ptypeInput"> Pokemon Type: </label> <input type="text" id="ptype" required>
+            <label for="regionInput"> Region ID: </label> <input type="text" id="regionID" required>
     </fieldset>
-    <input class="btn" type="submit" id="updatePokedex" value="Update">
-          <input class="btn" type="button" value="cancel" >
+    <button type="submit">Update Pokedex</button>
+    <button type="cancel">Cancel</button>
   </form> 
 </div><!-- update -->
+
 <p>&nbsp;</p>
 <div id="delete" style="display: block">
   <form id="deletePokedex">
       <legend><strong>Delete Pokedex</strong></legend>
           <fieldset class="fields">
           <p>Are you sure you wish to delete the following?</p> -->
-          <!-- <label>ID:</label> 1
-            <label> Name </label> Gemenon -->
-            <label> Pokemon Name: </label> <input type="text" value=" " name=" ">
-            <label> Pokedex ID: </label> <input type="text"  name=" " value=" ">
-            
+            <label for="pnameInput"> Pokemon Name: </label> <input type="text" id="pname" required>
+            <label for="pokedexIDInput"> Pokedex ID: </label> <input type="text" id="pokedexID" required>           
     </fieldset>
     <input class="btn" type="submit" id="DeletePlanet" value="Delete">
           <input class="btn" type="button" value="cancel" >
