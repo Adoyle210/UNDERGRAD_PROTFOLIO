@@ -2,7 +2,7 @@ const pokedexTable = document.getElementById("pokedexTable");
 
 function displaypokedex() {
     pokedexTable.innerHTML = ""; 
-    fetch(" ")
+    fetch(":9351/api/accounts/get")
         .then(response => response.json())
         .then(pokedex => {
             pokedex.forEach(pokedex => {
@@ -48,3 +48,7 @@ function displaypokedex() {
             console.error("Error fetching pokedex:", error);
         });
 }
+
+
+
+displaypokedex();
