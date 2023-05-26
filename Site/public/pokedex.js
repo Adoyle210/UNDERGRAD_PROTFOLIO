@@ -2,7 +2,7 @@ const pokedexTable = document.getElementById("pokedexTable");
 
 function displaypokedex() {
     pokedexTable.innerHTML = ""; 
-    fetch(":9351/api/accounts/get")
+    fetch("http://flip3.engr.oregonstate.edu:11111/api/accounts/get")
         .then(response => response.json())
         .then(pokedex => {
             pokedex.forEach(pokedex => {
@@ -48,6 +48,8 @@ function displaypokedex() {
             console.error("Error fetching pokedex:", error);
         });
 }
+
+//NEED FUNCTION TO ADD, DELETE AND UPDATE 
 
 
 
