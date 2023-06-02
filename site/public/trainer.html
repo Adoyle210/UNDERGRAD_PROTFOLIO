@@ -77,63 +77,35 @@
   </div>
 </div>
 
-<div id="browse">
+<div id="browse" style="display: block">
 <p><a href="#" onClick="showAll()">Display all forms</a> </p>
-<table>
+<p><strong>Browse Trainers</strong></p>
+<table id="trainerTable">
   <tr>
-    <th><a href="#" onClick="newPerson()">New</a></th>
-    <th></th>
+    <!-- <th><a href="#" onClick="newPerson()">New</a></th> -->
     <th>Trainer ID</th>
     <th>Trainer Name</th>
     <th>Wins</th>
     <th>Losses</th>
   </tr>
-  <tr>
-    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
-    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
-    <td>1</td>
-    <td >Ash</td>
-    <td>5</td>
-    <td>2</td>
-  </tr>
-  <tr>
-    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
-    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
-    <td>2</td>
-    <td>Misty</td>
-    <td>3</td>
-    <td >1</td>
-  </tr>
-  <tr>
-    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
-    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
-    <td>3</td>
-    <td>Broc</td>
-    <td >4</td>
-    <td>2</td>
-  </tr>
 </table>
 <p>&nbsp;</p>
+
 </div> <!-- browse -->
 <div id="insert">
     <form method="POST" id="addTrainer">
         <legend><strong>Add Trainer</strong></legend>
           <fieldset class="fields">
-            <label> Trainer Name </label> <select name="tname">
-                <option value="0">&nbsp;</option>
-                <option value="1">Ash</option>
-                <option value="2">Misty</option>
-                <option value="3">Broc</option>
-                </select>
-            <label> Wins </label> <input type="type" name="wins">
-            <label> loss </label> <input type="text" name="loss">
+            <label for="tnameInput"> Trainer Name: </label> <input type="text" id="tnameInput" required>
+            <label for="winsInput"> Wins: </label> <input type="number" id="winsInput" required>
+            <label for="lossesInput"> Losses: </label> <input type="number" id="lossesInput" required>
       </fieldset>
-          <input class="btn" type="submit" id="addTrainer" value="Add Trainer">
+          <input class="btn" type="submit" id="addtrainer" value="Add trainer">
           <input class="btn" type="button" value="cancel" onClick="browsePeople()">
 	</form> 
 </div><!-- insert -->
 <div id="insertpok">
-  <form method="POST" id="addTrainerHas">
+  <form method="POST" id="addtrainerHas">
       <legend><strong>Add Trainers Pokemon</strong></legend>
         <fieldset class="fields">
           <label> Trainer Name </label> <select name="tname">
@@ -149,13 +121,13 @@
             <option value="3">squirtle</option>
           </select>
         </fieldset>
-        <input class="btn" type="submit" id="addTrainerHas" value="Add TrainerHas">
+        <input class="btn" type="submit" id="addtrainerHas" value="Add trainerHas">
         <input class="btn" type="button" value="cancel" onClick="browsePeople()">
 </form> 
 </div><!-- insert -->
 <p>&nbsp;</p>
 <div id="update">
-    <form method="POST" id="UpdateTrainer">
+    <form method="POST" id="Updatetrainer">
         <legend><strong>Update Trainer</strong></legend>
           <fieldset class="fields">
           <input type="hidden" name="personID" id="updatepersonID" value="1">
@@ -176,7 +148,7 @@
 </div><!-- update -->
 <p>&nbsp;</p>
 <div id="delete" style="display: block">
-  <form method="POST" id="deleteTrainer">
+  <form method="POST" id="deletetrainer">
       <legend><strong>Delete Trainer</strong></legend>
         <fieldset class="fields">
           <p>Are you sure you wish to delete the following?</p>
@@ -188,6 +160,8 @@
           <input class="btn" type="button" value="cancel" onClick="browsePeople()">
   </form> 
 </div><!-- delete -->
+
+<script src="trainer.js"></script>
 
 </body>
 </html>
