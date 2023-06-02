@@ -3,13 +3,8 @@ DROP TABLE IF EXISTS type;
  
 CREATE TABLE type (            
     id int NOT NULL AUTO_INCREMENT,    
-    fire varchar(25) DEFAULT 'false',
-    water varchar(25) DEFAULT 'false',
-    grass varchar(25) DEFAULT 'false',
-    normal varchar(25) DEFAULT 'false',
-    bug varchar(25) DEFAULT 'false',
-    poison varchar(25) DEFAULT 'false',
-    flying varchar(25) DEFAULT 'false',
+    type1 varchar(25) NOT NULL,
+    type2 varchar(25) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -17,8 +12,8 @@ DROP TABLE IF EXISTS region;
 
 CREATE TABLE region (
     id int NOT NULL AUTO_INCREMENT,     
-    kanto varchar(25) DEFAULT 'false',
-    johto varchar(25) DEFAULT 'false',
+    region1 varchar(25) NOT NULL,
+    region2 varchar(25) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -30,7 +25,6 @@ CREATE TABLE pokedex (
     pokedexID int NOT NULL AUTO_INCREMENT,
     regionID int NOT NULL,
     PRIMARY KEY (pokedexID)
-    
 );
 
 DROP TABLE IF EXISTS trainer;
@@ -55,41 +49,48 @@ CREATE TABLE trainerHas (
 );
 
 -- all the data we insert into the tables
+INSERT INTO type VALUES ('grass', 'poison'),
+INSERT INTO type VALUES ('fire', NULL),
+INSERT INTO type VALUES ('fire', 'flying'),
+INSERT INTO type VALUES ('water', NULL),
+INSERT INTO type VALUES ('bug', NULL),
+INSERT INTO type VALUES ('bug', 'poison'),
+INSERT INTO type VALUES ('normal', 'flying'),
+INSERT INTO type VALUES ('normal', NULL);
 
-INSERT INTO type (grass, poison) VALUES ('true', 'true');
+/*INSERT INTO type (grass, poison) VALUES ('true', 'true');
 INSERT INTO type (fire) VALUES ('true');
 INSERT INTO type (fire, flying) VALUES ('true', 'true');
 INSERT INTO type (water) VALUES ('true');
 INSERT INTO type (bug) VALUES ('true');
 INSERT INTO type (bug, poison) VALUES ('true', 'true');
 INSERT INTO type (normal, flying) VALUES ('true', 'true');
-INSERT INTO type (normal) VALUES ('true');
+INSERT INTO type (normal) VALUES ('true');*/
 
-INSERT INTO region (kanto) VALUES ('true');
-INSERT INTO region (johto) VALUES ('true');
-INSERT INTO region (kanto, johto) VALUES ('true', 'true');
+INSERT INTO region VALUES ('johto');
+INSERT INTO region VALUES ('kanto');
 
 INSERT INTO pokedex (pname, ptype, regionID) 
-    VALUES ('bulbasaur', 1, (SELECT id FROM region WHERE kanto = 'true')),
-        ('ivysaur', 1, (SELECT id FROM region WHERE kanto = 'true')),
-        ('venusaur', 1,  (SELECT id FROM region WHERE kanto = 'true')), 
-        ('charmander', 2, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('charmeleon', 2, (SELECT id FROM region WHERE kanto = 'true')),
-        ('charizard', 3, (SELECT id FROM region WHERE kanto = 'true')),
-        ('squirtle', 4, (SELECT id FROM region WHERE kanto = 'true')),
-        ('wartortle', 4, (SELECT id FROM region WHERE kanto = 'true')),
-        ('blastoise', 4, (SELECT id FROM region WHERE kanto = 'true')),
-        ('caterpir', 5, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('metapod',  5, (SELECT id FROM region WHERE kanto = 'true')),
-        ('butterfree', 6, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('weedle', 7, (SELECT id FROM region WHERE kanto = 'true')),
-        ('kakuna', 7, (SELECT id FROM region WHERE kanto = 'true')),
-        ('beedrill', 7, (SELECT id FROM region WHERE kanto = 'true')),
-        ('pidgey', 8, (SELECT id FROM region WHERE kanto = 'true')), 
-        ('pidgeotto', 8, (SELECT id FROM region WHERE kanto = 'true')),
-        ('pidgeot', 8, (SELECT id FROM region WHERE kanto = 'true')),
-        ('rattata', 9, (SELECT id FROM region WHERE kanto = 'true')),
-        ('raticate', 9, (SELECT id FROM region WHERE kanto = 'true')); 
+    VALUES ('bulbasaur', 1, 1),
+        ('ivysaur', 1, 1),
+        ('venusaur', 1, 1), 
+        ('charmander', 2, 1), 
+        ('charmeleon', 2, 1),
+        ('charizard', 3, 1),
+        ('squirtle', 4, 1),
+        ('wartortle', 4, 1),
+        ('blastoise', 4, 1),
+        ('caterpir', 5, 1), 
+        ('metapod',  5, 1),
+        ('butterfree', 6, 1), 
+        ('weedle', 7, 1),
+        ('kakuna', 7, 1),
+        ('beedrill', 7, 1),
+        ('pidgey', 8, 1), 
+        ('pidgeotto', 8, 1),
+        ('pidgeot', 8, 1),
+        ('rattata', 9, 1),
+        ('raticate', 9, 1); 
 
 
 
