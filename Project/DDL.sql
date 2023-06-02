@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS type;
 CREATE TABLE type (            
     id int NOT NULL AUTO_INCREMENT,    
     type1 varchar(25) NOT NULL,
-    type2 varchar(25) NOT NULL,
+    type2 varchar(25),
     PRIMARY KEY (id)
 );
 
@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS region;
 CREATE TABLE region (
     id int NOT NULL AUTO_INCREMENT,     
     region1 varchar(25) NOT NULL,
-    region2 varchar(25) NOT NULL,
+    region2 varchar(25),
     PRIMARY KEY (id)
 );
 
@@ -49,14 +49,15 @@ CREATE TABLE trainerHas (
 );
 
 -- all the data we insert into the tables
-INSERT INTO type VALUES ('grass', 'poison'),
-INSERT INTO type VALUES ('fire', NULL),
-INSERT INTO type VALUES ('fire', 'flying'),
-INSERT INTO type VALUES ('water', NULL),
-INSERT INTO type VALUES ('bug', NULL),
-INSERT INTO type VALUES ('bug', 'poison'),
-INSERT INTO type VALUES ('normal', 'flying'),
-INSERT INTO type VALUES ('normal', NULL);
+INSERT INTO type (type1, type2)
+    VALUES ('grass', 'poison'),
+    ('fire', NULL),
+    ('fire', 'flying'),
+    ('water', NULL),
+    ('bug', NULL),
+    ('bug', 'poison'),
+    ('normal', 'flying'),
+    ('normal', NULL);
 
 /*INSERT INTO type (grass, poison) VALUES ('true', 'true');
 INSERT INTO type (fire) VALUES ('true');
@@ -67,8 +68,10 @@ INSERT INTO type (bug, poison) VALUES ('true', 'true');
 INSERT INTO type (normal, flying) VALUES ('true', 'true');
 INSERT INTO type (normal) VALUES ('true');*/
 
-INSERT INTO region VALUES ('johto');
-INSERT INTO region VALUES ('kanto');
+INSERT INTO region (region1, region2) 
+    VALUES ('johto', NULL),
+    ('kanto', NULL),
+    ('johnto', 'kanto');
 
 INSERT INTO pokedex (pname, ptype, regionID) 
     VALUES ('bulbasaur', 1, 1),
