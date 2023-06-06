@@ -1,7 +1,6 @@
 -- this file is to set up all the tables in the database 
 
 DROP TABLE IF EXISTS type;
- 
 CREATE TABLE type (            
     id int NOT NULL AUTO_INCREMENT,    
     fire varchar(25) DEFAULT 'false',
