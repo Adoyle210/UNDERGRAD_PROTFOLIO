@@ -1,0 +1,23 @@
+<h1> Trainer Has </h1>
+
+<table> 
+    <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.trainerID}}</td>
+            <td>{{this.pokedexID}}</td>
+            <td>{{this.pokemonID}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
