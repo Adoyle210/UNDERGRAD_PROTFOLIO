@@ -1,15 +1,5 @@
 <h1>Pokedex</h1>
 
-{{!-- <html>
-    <body>
-        <a href="/">Pokedex</a>
-        <a href="/trainer">Trainer</a>
-        <a href="/trainerHas">Trainer Has</a>
-        <a href="/type"> Type</a>
-        <a href="/region"> Region</a>
-    </body>
-</html> --}}
-
 <table id="pokedexTable"> 
     <thead>
         <tr>
@@ -18,16 +8,18 @@
                 {{@key}}
             </th>
             {{/each}}
+            <th>delete</th>
         </tr>
     </thead>
 
     <tbody>
         {{#each data}}
-        <tr>
+        <tr data-value={{this.pokedexID}}>
             <td>{{this.pokedexID}}</td>
             <td>{{this.pname}}</td>
             <td>{{this.ptype}}</td>
             <td>{{this.regionID}}</td>
+            <td><button onclick="deletePokemon({{this.pokedexID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -41,7 +33,6 @@
     <input type="text" name="pnameInput" id="pnameInput">
 
     <label for="ptypeInput"> Pokemon Type: </label> 
-    {{!-- <input type="number" name="ptypeInput" id="ptypeInput"> --}}
     <select name="ptypeInput" id="ptypeInput">
         <option value="">Select types</option>
         {{#each types}}
@@ -50,7 +41,6 @@
     </select>
 
     <label for="regionInput"> Region ID: </label> 
-    {{!-- <input type="number" name="regionInput" id="regionInput"> --}}
     <select name="regionInput" id="regionInput">
         <option value="">Select regions</option>
         {{#each regions}}
@@ -63,3 +53,4 @@
 
 {{!-- this is our java to handle the DOM manimplation and AJAX request --}}
 <script src="./js/addpokedex.js"></script>
+<script src="./js/deletepokedex.js"></script>

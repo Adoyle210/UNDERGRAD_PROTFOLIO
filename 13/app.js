@@ -78,10 +78,10 @@ app.get('/type/search', function (req, res) {
     let query1;
 
     if (req.query.searchedType === undefined || req.query.searchedType == '') {
-      query1 = 'SELECT * FROM Types;';
+      query1 = 'SELECT * FROM type;';
     } else {
       let searchedTitle = req.query.searchedTitle;
-      query1 = `SELECT * FROM Types WHERE title LIKE '%${searchedType}%'`;
+      query1 = `SELECT * FROM type WHERE title LIKE '%${searchedType}%'`;
     }
   
     db.pool.query(query1, function (error, rows, fields) {
@@ -89,7 +89,7 @@ app.get('/type/search', function (req, res) {
         console.log(error);
         res.sendStatus(400);
       } else {
-        res.render('Types', { data: rows });
+        res.render('type', { data: rows });
       }
     });
   });
@@ -126,27 +126,22 @@ app.post('/pokedex/add', function(req, res) {
     })
 });
 
-// app.post('/pokedex/add', funcion(req, res){
-//     query1 = "INSERT INTO pokedex (pname, ptype, regionID) VALUES ('" + req.body.pname + "', '" + req.body.ptype + "', '" + req.body.regionID + "');"
-//     db.pool.query(query1, function(err, result, fields){
-//         if (err) {
-//             console.log(err);
-//             res.status(404);
-//         }
-//         else {
-//             query2 = "SELECT * FROM pokedex;";
-//             db.pool.query(query2, function(error, result, fields){
-//                 if (err) {
-//                     console.log(err);
-//                     res.status(404);
-//                 }
-//                 else {
-//                     res.send(result);
-//                 }
-//             })   
-//         }
-//     })
-// });
+//DELETE
+app.delete('/pokedex/delete/', function(req,res,next){
+    let data = req.body;
+    let pokedexID = parseInt(data.id);
+    let query1 = `DELETE FROM pokedex WHERE PokedexID = ?`;
+    // Run the 1st query
+    db.pool.query(query1, [pokedexID], function(error, rows, fields){
+        if (error) {
+            console.log(error);
+            res.sendStatus(400);
+        }
+        else {
+            res.sendStatus(204);
+        }
+    })
+});
 
 /*
     LISTENER 
