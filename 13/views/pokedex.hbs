@@ -41,10 +41,22 @@
     <input type="text" name="pnameInput" id="pnameInput">
 
     <label for="ptypeInput"> Pokemon Type: </label> 
-    <input type="number" name="ptypeInput" id="ptypeInput">
+    {{!-- <input type="number" name="ptypeInput" id="ptypeInput"> --}}
+    <select name="ptypeInput" id="ptypeInput">
+        <option value="">Select types</option>
+        {{#each types}}
+        <option value="{{this.id}}">{{this.type1}} {{this.type2}}</option>
+        {{/each}}
+    </select>
 
     <label for="regionInput"> Region ID: </label> 
-    <input type="number" name="regionInput" id="regionInput">
+    {{!-- <input type="number" name="regionInput" id="regionInput"> --}}
+    <select name="regionInput" id="regionInput">
+        <option value="">Select regions</option>
+        {{#each regions}}
+        <option value="{{this.id}}">{{this.region1}} {{this.region2}}</option>
+        {{/each}}
+    </select>
 
     <input type="submit">
 </form>

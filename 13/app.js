@@ -26,8 +26,27 @@ app.set('view engine', '.hbs');                 // Tell express to use the handl
 app.get('/', function(req, res)                 // This is the basic syntax for what is called a 'route'
 {
     let query1 = "SELECT * FROM pokedex;";
+    // db.pool.query(query1, function(error, rows, fields){
+    //     res.render('trainer', {data: rows}); 
+    // })  
+    let query2 = "SELECT * FROM type;";
+    let query3 = "SELECT * FROM region;";
     db.pool.query(query1, function(error, rows, fields){
-        res.render('pokedex', {data: rows}); 
+        //saving pokedex data
+        let poke = rows;
+
+        db.pool.query(query2, (error, rows, fields) => {
+            //saving types
+            let types = rows;
+
+            db.pool.query(query3, (error, rows, fields) => {
+                //saving region 
+                let regions = rows;
+
+                return res.render('pokedex', {data: poke, types: types, regions: regions}); 
+            })
+        })
+        
     })     
 });                                         // requesting the web site.
 
@@ -55,6 +74,26 @@ app.get('/type', function(req, res)                 // This is the basic syntax 
     })     
 }); 
 
+app.get('/type/search', function (req, res) {
+    let query1;
+
+    if (req.query.searchedType === undefined || req.query.searchedType == '') {
+      query1 = 'SELECT * FROM Types;';
+    } else {
+      let searchedTitle = req.query.searchedTitle;
+      query1 = `SELECT * FROM Types WHERE title LIKE '%${searchedType}%'`;
+    }
+  
+    db.pool.query(query1, function (error, rows, fields) {
+      if (error) {
+        console.log(error);
+        res.sendStatus(400);
+      } else {
+        res.render('Types', { data: rows });
+      }
+    });
+  });
+
 app.get('/region', function(req, res)                 // This is the basic syntax for what is called a 'route'
 {
     let query1 = "SELECT * FROM region;";
@@ -62,6 +101,7 @@ app.get('/region', function(req, res)                 // This is the basic synta
         res.render('region', {data: rows}); 
     })     
 }); 
+
 
 //POST
 app.post('/pokedex/add', function(req, res) {
