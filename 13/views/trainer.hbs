@@ -1,0 +1,24 @@
+<h1>The trainers!</h1>
+
+<table> 
+    <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.trainerID}}</td>
+            <td>{{this.tname}}</td>
+            <td>{{this.wins}}</td>
+            <td>{{this.losses}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
