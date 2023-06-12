@@ -1,6 +1,6 @@
 <h1> Types </h1>
 
-<table> 
+<table id="typesTable"> 
     <thead>
         <tr>
             {{#each data.[0]}}
@@ -21,3 +21,15 @@
         {{/each}}
     </tbody>
 </table>
+
+
+<div id="search">
+<form method="GET" id="searchType" action="/type/search">
+  <label for="input-search"> <strong>Search by Type</strong> </label>
+  <input type="text" name="searchingtype">
+
+  <input class="btn" type="submit" id="submitSearch" value="Search for Type">
+  <button onclick="window.location.href='/'">Reset</button> 
+
+</form> 
+</div>
