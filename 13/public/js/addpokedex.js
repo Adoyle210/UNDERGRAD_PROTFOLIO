@@ -63,6 +63,8 @@ addRowToTable = (data) => {
     let pnameCell = document.createElement("TD");
     let ptypeCell = document.createElement("TD");
     let regionIDCell = document.createElement("TD");
+
+    let deleteCell = document.createElement("TD");
     
 
     // Fill the cells with correct data
@@ -71,12 +73,29 @@ addRowToTable = (data) => {
     ptypeCell.innerText = newRow.ptype;
     regionIDCell.innerText = newRow.regionID;
 
+    deleteCell = document.createElement("button");
+    deleteCell.innerHTML = "Delete";
+    deleteCell.onclick = function(){
+        deletePerson(newRow.id);
+    };
+
     // Add the cells to the row 
     row.appendChild(idCell);
     row.appendChild(pnameCell);
     row.appendChild(ptypeCell);
     row.appendChild(regionIDCell);
+    row.appendChild(deleteCell);
+
+
+    row.setAttribute('data-value', newRow.id);
+
 
     currentTable.appendChild(row);
+
+    // let selectMenu = document.getElementById("pokedexIDInput");
+    // let option = document.createElement("option");
+    // option.text = newRow.fname + ' ' +  newRow.lname;
+    // option.value = newRow.id;
+    // selectMenu.add(option);
 
 }

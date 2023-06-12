@@ -51,6 +51,40 @@
     <input type="submit">
 </form>
 
+<h2>Update Pokemon</h2>
+<form id="updatepokedex">
+    <label for="pokedexIDInput"> pokedex ID: </label> 
+    <select name="pokedexIDInput" id="pokedexIDInput">
+        <option value="test">Select ID</option>
+        {{#each data}}
+        <option value="{{this.pokedexID}}">{{this.pokedexID}}</option>
+        {{/each}}
+    </select>
+
+    <label for="pnameInput"> Pokemon Name: </label>
+    <input type="text" name="pnameInput" id="pnameInput">
+
+    <label for="ptypeInput"> Pokemon Type: </label> 
+    <select name="ptypeInput" id="ptypeInput">
+        <option value="">Select types</option>
+        {{#each types}}
+        <option value="{{this.id}}">{{this.type1}} {{this.type2}}</option>
+        {{/each}}
+    </select>
+
+    <label for="regionInput"> Pokemon Region: </label> 
+    <select name="regionInput" id="regionInput">
+        <option value="">Select regions</option>
+        {{#each regions}}
+        <option value="{{this.id}}">{{this.region1}} {{this.region2}}</option>
+        {{/each}}
+    </select>
+
+    <input type="submit">
+</form>
+
+
 {{!-- this is our java to handle the DOM manimplation and AJAX request --}}
 <script src="./js/addpokedex.js"></script>
 <script src="./js/deletepokedex.js"></script>
+<script src="./js/updatepokedex.js"></script>

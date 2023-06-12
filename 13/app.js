@@ -126,6 +126,26 @@ app.post('/pokedex/add', function(req, res) {
     })
 });
 
+app.post('/type/add', function(req, res) {
+    //catching null 
+    let type2 = parseInt(req.body.type2);
+    if (isNaN(type2))
+    {
+        type2 = 'NULL'
+    }
+
+    query1 = "INSERT INTO type (type1, type2) VALUES ('" + req.body.type1 + "', '" + req.body.type2 + "');"
+    db.pool.query(query1, function(err, result, fields){
+        if (err) {
+            console.log(err);
+            res.sendStatus(400);
+        }
+        else {
+            res.send(result);  
+        }
+    })
+}); 
+
 //DELETE
 app.delete('/pokedex/delete/', function(req,res,next){
     let data = req.body;
@@ -139,6 +159,27 @@ app.delete('/pokedex/delete/', function(req,res,next){
         }
         else {
             res.sendStatus(204);
+        }
+    })
+});
+
+//UPDATE
+app.put('/pokedex/update', function(req,res,next){
+    let data = req.body;
+  
+    let pname = parseInt(data.pname);
+    let ptype = parseInt(data.ptype);
+    let regionID = parseInt(data.regionID);
+    let pokedexID = parseInt(data.pokedexID);
+  
+    let query1 = `UPDATE pokedex SET pname = ?, ptype = ?, regionID = ? WHERE pokedexID = ?`;
+    db.pool.query(query1, [pname, ptype, regionID, pokedexID], function(error, rows, fields){
+        if (error) {
+            console.log(error);
+            res.sendStatus(400);
+        }
+        else {
+            res.send(rows);
         }
     })
 });

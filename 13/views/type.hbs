@@ -29,7 +29,24 @@
   <input type="text" name="searchingtype">
 
   <input class="btn" type="submit" id="submitSearch" value="Search for Type">
-  <button onclick="window.location.href='/'">Reset</button> 
+  <button onclick="window.location.href='/type'">Reset</button> 
 
 </form> 
 </div>
+
+
+{{!-- Form to add pokemon types to the pokedex --}}
+<h2>Add Pokemon Type</h2>
+<p>Discovered a new pokemon type? Well add it to our database</p>
+<form id="addType">
+    <label for="typenameInput"> Type1: </label>
+    <input type="text" name="typenameInput" id="typenameInput">
+
+    <label for="type2nameInput"> Type2: </label>
+    <input type="text" name="type2nameInput" id="type2nameInput">
+    
+    <input type="submit">
+</form>
+
+{{!-- this is our java to handle the DOM manimplation and AJAX request --}}
+<script src="./js/addpokemontype.js"></script>
