@@ -69,14 +69,14 @@ app.post('/pokedex/add', function(req, res) {
     db.pool.query(query1, function(err, result, fields){
         if (err) {
             console.log(err);
-            res.status(404);
+            res.sendStatus(400);
         }
         else {
             query2 = "SELECT * FROM pokedex;";
-            db.pool.query(query2, function(error, result, fields){
+            db.pool.query(query2, function(err, result, fields){
                 if (err) {
                     console.log(err);
-                    res.status(404);
+                    res.sendStatus(400);
                 }
                 else {
                     res.send(result);

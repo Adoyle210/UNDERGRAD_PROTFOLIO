@@ -26,7 +26,7 @@ addpokemonform.addEventListener("submit", function (e) {
     xhttp.open("POST", "/pokedex/add", true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
-    //this tells out AJAC request how to resolve
+    //this tells out AJAX request how to resolve
     xhttp.onreadystatechange = () => {
         if(xhttp.readyState == 4 && xhttp.status == 200){
             //add new data
