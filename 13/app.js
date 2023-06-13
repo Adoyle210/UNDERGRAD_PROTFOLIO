@@ -126,6 +126,28 @@ app.post('/pokedex/add', function(req, res) {
     })
 });
 
+app.post('/trainer/add', function(req, res) {
+    query1 = "INSERT INTO trainer (tname, wins, losses) VALUES ('" + req.body.tname + "', '" + req.body.wins + "', '" + req.body.losses + "');"
+    db.pool.query(query1, function(err, result, fields){
+        if (err) {
+            console.log(err);
+            res.sendStatus(400);
+        }
+        else {
+            query2 = "SELECT * FROM trainer;";
+            db.pool.query(query2, function(err, result, fields){
+                if (err) {
+                    console.log(err);
+                    res.sendStatus(400);
+                }
+                else {
+                    res.send(result);
+                }
+            })   
+        }
+    })
+});
+
 app.post('/type/add', function(req, res) {
     //catching null 
     let type2 = parseInt(req.body.type2);
