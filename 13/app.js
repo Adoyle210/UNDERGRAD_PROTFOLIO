@@ -26,9 +26,6 @@ app.set('view engine', '.hbs');                 // Tell express to use the handl
 app.get('/', function(req, res)                 // This is the basic syntax for what is called a 'route'
 {
     let query1 = "SELECT * FROM pokedex;";
-    // db.pool.query(query1, function(error, rows, fields){
-    //     res.render('trainer', {data: rows}); 
-    // })  
     let query2 = "SELECT * FROM type;";
     let query3 = "SELECT * FROM region;";
     db.pool.query(query1, function(error, rows, fields){
@@ -61,9 +58,21 @@ app.get('/trainer', function(req, res)                 // This is the basic synt
 app.get('/trainerHas', function(req, res)                 // This is the basic syntax for what is called a 'route'
 {
     let query1 = "SELECT * FROM trainerHas;";
+    let query2 = "SELECT * FROM pokedex;";
+    let query3 = "SELECT * FROM trainer;";
     db.pool.query(query1, function(error, rows, fields){
-        res.render('trainerhas', {data: rows}); 
-    })     
+        let trainer = rows;
+        db.pool.query(query2, (error, rows, fields) => {
+            //savving pokedex
+            let poke = rows;
+            db.pool.query(query3, (error, rows, fields) => {
+                //saving type
+                let trainers = rows;
+
+                return res.render('trainerhas', {data: trainer, pokedex: poke, trainer: trainers}); 
+            })
+        })    
+    })        
 }); 
 
 app.get('/type', function(req, res)                 // This is the basic syntax for what is called a 'route'
@@ -148,6 +157,28 @@ app.post('/trainer/add', function(req, res) {
     })
 });
 
+app.post('/trainerHas/add', function(req, res) {
+    query1 = "INSERT INTO trainerHas (trainerID, pokedexID) VALUES ('" + req.body.trainerID + "', '" + req.body.pokedexID + "');"
+    db.pool.query(query1, function(err, result, fields){
+        if (err) {
+            console.log(err);
+            res.sendStatus(400);
+        }
+        else {
+            query2 = "SELECT * FROM trainerHas;";
+            db.pool.query(query2, function(err, result, fields){
+                if (err) {
+                    console.log(err);
+                    res.sendStatus(400);
+                }
+                else {
+                    res.send(result);
+                }
+            })   
+        }
+    })
+});
+
 app.post('/type/add', function(req, res) {
     //catching null 
     let type2 = parseInt(req.body.type2);
@@ -167,6 +198,28 @@ app.post('/type/add', function(req, res) {
         }
     })
 }); 
+
+app.post('/region/add', function(req, res) {
+    query1 = "INSERT INTO region (region1, region2) VALUES ('" + req.body.region1 + "', '" + req.body.region2 + "');"
+    db.pool.query(query1, function(err, result, fields){
+        if (err) {
+            console.log(err);
+            res.sendStatus(400);
+        }
+        else {
+            query2 = "SELECT * FROM region;";
+            db.pool.query(query2, function(err, result, fields){
+                if (err) {
+                    console.log(err);
+                    res.sendStatus(400);
+                }
+                else {
+                    res.send(result);
+                }
+            })   
+        }
+    })
+});
 
 //DELETE
 app.delete('/pokedex/delete/', function(req,res,next){

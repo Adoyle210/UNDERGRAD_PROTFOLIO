@@ -1,26 +1,18 @@
-let addpokemonform = document.getElementById('addType');
+let addtypeform = document.getElementById('addtype');
 
-addpokemonform.addEventListener("submit", function (e) {
+addtypeform.addEventListener("submit", function (e) {
     //this prevents the form from submmiting
     e.preventDefault();
 
-    let field_type2 = document.getElementById("type1Input");
-    let field_type1 = document.getElementById("type2Input");
+    let field_type1 = document.getElementById("type1Input");
+    let field_type2 = document.getElementById("type2Input");
 
-    let val_type1 = '';
-    let val_type2 = '';
-
-    if (field_type1 !== null) {
-        val_type1 = field_type1.value;
-    }
-
-    if (field_type2 !== null) {
-        val_type2 = field_type2.value;
-    }
+    let val_type1 = field_type1.value;
+    let val_type2 = field_type2.value;
 
     let data = {
         type1: val_type1,
-        type2: val_type2
+        type2: val_type2,
     }
 
     var xhttp = new XMLHttpRequest();

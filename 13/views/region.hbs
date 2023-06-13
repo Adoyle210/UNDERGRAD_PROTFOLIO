@@ -1,6 +1,6 @@
 <h1> Region </h1>
 
-<table> 
+<table id = "regionTable"> 
     <thead>
         <tr>
             {{#each data.[0]}}
@@ -21,3 +21,17 @@
         {{/each}}
     </tbody>
 </table>
+
+<h2>Add Region</h2>
+<p>Found a pokemon from a new region? Add those regions here!</p>
+<form id="addregion">
+    <label for="region1Input">Region 1: </label>
+    <input type="text" name="region1Input" id="region1Input">
+
+    <label for="region2Input">Region 2: </label>
+    <input type="text" name="region2Input" id="region2Input">
+
+    <input type="submit">
+</form>
+
+<script src="./js/addregion.js"></script>
