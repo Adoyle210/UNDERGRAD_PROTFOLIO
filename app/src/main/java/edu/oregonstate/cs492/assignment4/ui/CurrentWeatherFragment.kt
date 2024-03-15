@@ -22,13 +22,16 @@ import com.bumptech.glide.Glide
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import edu.oregonstate.cs492.assignment4.R
 import edu.oregonstate.cs492.assignment4.data.ForecastPeriod
+import edu.oregonstate.cs492.assignment4.data.CityDatabaseEntry
 import edu.oregonstate.cs492.assignment4.util.openWeatherEpochToDate
+
 
 /**
  * This fragment represents the "current weather" screen.
  */
 class CurrentWeatherFragment : Fragment(R.layout.fragment_current_weather) {
     private val viewModel: CurrentWeatherViewModel by viewModels()
+    private val bookModel: BookmarkedCityViewModel by viewModels()
 
     private var currentWeather: ForecastPeriod? = null
 
@@ -127,7 +130,9 @@ class CurrentWeatherFragment : Fragment(R.layout.fragment_current_weather) {
                             }
                             true
                         }
-                        else -> false
+                        else -> {
+                            false
+                        }
                     }
                 }
 
@@ -154,6 +159,16 @@ class CurrentWeatherFragment : Fragment(R.layout.fragment_current_weather) {
             getString(R.string.pref_units_default_value)
         )
         viewModel.loadCurrentWeather(city, units, getString(R.string.openweather_api_key))
+        onSharedPreferenceChanged(prefs, getString(R.string.pref_city_key))
+    }
+
+    // added for database store
+    private fun onSharedPreferenceChanged(sharedPrefs: SharedPreferences, key: String) {
+        //Add to Database
+        val toAdd = sharedPrefs.getString(getString(R.string.pref_city_key), "Corvallis,OR,US")
+        if (toAdd == "") return
+        val entry = CityDatabaseEntry(toAdd!!, System.currentTimeMillis().toInt())
+        bookModel.addBookmarkedCity(entry)
     }
 
     /*
