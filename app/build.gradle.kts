@@ -26,7 +26,7 @@ android {
          * To make this work, you should follow the instructions in the comment at the top of
          * MainActivity.kt.
          */
-        resValue("string", "openweather_api_key", properties["OPENWEATHER_API_KEY"]?.toString() ?: "")
+        resValue("string", "openweather_api_key", properties["OPENWEATHER_API_KEY"]?.toString() ?: "29e93ca9bb68f276635d501358c50958")
     }
 
     buildTypes {
@@ -60,7 +60,7 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
-    implementation("androidx.preference:preference-ktx:1.2.1")
+    implementation("androidx.preference:preference-ktx:1.2.1") // FOR PREFRENCE LIBRARY
 
     implementation("com.google.android.material:material:1.11.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -69,6 +69,12 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.14.2")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    implementation("com.google.devtools.ksp:symbol-processing-api:1.9.22-1.0.17") //SQLite & Room Persistence
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
+
 
     ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
 
