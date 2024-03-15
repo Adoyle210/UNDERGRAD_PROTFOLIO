@@ -1,10 +1,12 @@
 package edu.oregonstate.cs492.assignment4.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
@@ -12,9 +14,16 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.navigation.NavigationView
 import edu.oregonstate.cs492.assignment4.R
+import edu.oregonstate.cs492.assignment4.data.CityDatabaseEntry
 
 /*
  * Often, we'll have sensitive values associated with our code, like API keys, that we'll want to
@@ -43,7 +52,13 @@ import edu.oregonstate.cs492.assignment4.R
  */
 
 class MainActivity : AppCompatActivity() {
+    private val tag = "MainActivity"
+
+    private val viewModel: BookmarkedCityViewModel by viewModels()
+
     private lateinit var appBarConfig: AppBarConfiguration
+    private lateinit var drawerRV: RecyclerView
+    private lateinit var drawerAdapter: DrawerListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -54,11 +69,26 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_host_fragment
         ) as NavHostFragment
         val navController = navHostFragment.navController
-        appBarConfig = AppBarConfiguration(navController.graph)
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        appBarConfig = AppBarConfiguration(navController.graph, drawerLayout)
 
         val appBar: MaterialToolbar = findViewById(R.id.top_app_bar)
         setSupportActionBar(appBar)
         setupActionBarWithNavController(navController, appBarConfig)
+
+        // Nav bar
+        findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
+        drawerRV = findViewById(R.id.rv_drawer_list)
+        drawerAdapter = DrawerListAdapter(::onDrawerItemClick)
+
+        drawerRV.layoutManager = LinearLayoutManager(this)
+        drawerRV.setHasFixedSize(true)
+        drawerRV.adapter = drawerAdapter
+
+        viewModel.savedCities.observe(this) {
+            Log.d(tag, it.toString())
+            this.drawerAdapter.updateCityList(it)
+        }
 
         /*
          * Set up a MenuProvider to provide and handle app bar actions for all screens under this
@@ -89,5 +119,12 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfig) || super.onSupportNavigateUp()
+    }
+
+    private fun onDrawerItemClick(cityEntry: CityDatabaseEntry) {
+        Log.d(tag, cityEntry.savedCity)
+        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
+        sharedPrefs.edit().putString(getString(R.string.pref_city_key), cityEntry.savedCity).commit()
+        recreate()
     }
 }

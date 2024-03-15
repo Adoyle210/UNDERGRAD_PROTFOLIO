@@ -164,7 +164,6 @@ class CurrentWeatherFragment : Fragment(R.layout.fragment_current_weather) {
 
     // added for database store
     private fun onSharedPreferenceChanged(sharedPrefs: SharedPreferences, key: String) {
-        //Add to Database
         val toAdd = sharedPrefs.getString(getString(R.string.pref_city_key), "Corvallis,OR,US")
         if (toAdd == "") return
         val entry = CityDatabaseEntry(toAdd!!, System.currentTimeMillis().toInt())

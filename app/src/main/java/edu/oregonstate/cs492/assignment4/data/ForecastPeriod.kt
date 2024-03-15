@@ -3,6 +3,7 @@ package edu.oregonstate.cs492.assignment4.data
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonClass
 import com.squareup.moshi.ToJson
+import java.io.Serializable
 
 /**
  * This class encapsulates data about a single forecast period fetched from the OpenWeather API's
@@ -23,7 +24,7 @@ data class ForecastPeriod(
     val description: String,
     val iconUrl: String,
     val tzOffsetSec: Int
-)
+) : Serializable
 
 /* ******************************************************************************************
  * Below is a set of classes used to parse the JSON response from the OpenWeather API into

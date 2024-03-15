@@ -5,6 +5,8 @@ import androidx.room.RoomDatabase
 import androidx.room.Room
 import androidx.room.Database
 
+const val DATABASE_NAME = "database_file"
+
 @Database(entities = [CityDatabaseEntry::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun CityDatabaseDao() : CityDatabaseDao
@@ -16,7 +18,7 @@ abstract class AppDatabase : RoomDatabase() {
             Room.databaseBuilder(
                 context,
                 AppDatabase::class.java,
-                "database_file"
+                DATABASE_NAME
             ).build()
 
         fun getInstance(context: Context): AppDatabase {

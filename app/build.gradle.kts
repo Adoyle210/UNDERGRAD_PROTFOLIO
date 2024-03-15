@@ -59,7 +59,7 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.8.2")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7") // for nav drawer
     implementation("androidx.preference:preference-ktx:1.2.1") // FOR PREFRENCE LIBRARY
 
     implementation("com.google.android.material:material:1.11.0")
