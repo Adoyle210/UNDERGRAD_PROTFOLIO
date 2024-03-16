@@ -69,10 +69,13 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.14.2")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("com.google.andriod.gms:play-services-location:20.0.0")
 
     implementation("com.google.devtools.ksp:symbol-processing-api:1.9.22-1.0.17") //SQLite & Room Persistence
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.2.0")
     ksp("androidx.room:room-compiler:2.6.1")
 
 
