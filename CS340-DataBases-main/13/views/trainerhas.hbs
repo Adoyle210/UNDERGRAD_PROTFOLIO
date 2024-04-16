@@ -1,0 +1,47 @@
+<h1> Trainer Has </h1>
+
+<table id="trainerHasTable"> 
+    <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.trainerID}}</td>
+            <td>{{this.pokedexID}}</td>
+            <td>{{this.pokemonID}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<h2>Add Pokemon a Trainer Has</h2>
+<p>Just started training? Add yourself and your pokemon</p>
+<form id="addtrainerHas">
+    <label for="trainerIDInput"> Trainer ID: </label> 
+    <select name="trainerIDInput" id="trainerIDInput">
+        <option value="">Select a Trainer</option>
+        {{#each trainer}}
+        <option value="{{this.trainerID}}">{{this.tname}}</option>
+        {{/each}}
+    </select>
+
+    <label for="pokedexIDInput"> Pokemon ID: </label> 
+    <select name="pokedexIDInput" id="pokedexIDInput">
+        <option value="">Select a  pokemon</option>
+        {{#each pokedex}}
+        <option value="{{this.pokedexID}}">{{this.pname}}</option>
+        {{/each}}
+    </select>
+
+    <input type="submit">
+</form>
+
+<script src="./js/addtrainerHas.js"></script>

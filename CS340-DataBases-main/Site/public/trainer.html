@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>TRAINER</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform(dowhat) {
+			/*
+			* four DIVS: browse, insert, update, delete
+			* this function sets one visible the others not
+			*/
+			if (dowhat == 'insert'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'block';
+        document.getElementById('insertpok').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+      else if (dowhat == 'insertpok'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+        document.getElementById('insertpok').style.display = 'block';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'update'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+        document.getElementById('insertpok').style.display = 'none';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'delete'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+        document.getElementById('insertpok').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'block';
+			}
+      else if (dowhat == 'all'){
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'block';
+        document.getElementById('insertpok').style.display = 'block';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'block';
+			}
+			else { //by default display browse
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'none';
+        document.getElementById('insertpok').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+		}
+    function newPerson() { showform('insert'); }
+    function updatePerson(pid) { showform('update'); }
+    function deletePerson(pid) { showform ('delete'); }
+    function browsePeople() { showform ('browse'); }
+    function showAll() { showform ('all'); }
+</script>
+</head>
+
+<body onload="browsePeople()">
+<h1>TRAINER</h1>
+
+<div class="navbar">
+  <a href="pokedex.html">pokedex</a>
+  <a href="trainer.html">trainers</a>
+  <a href="trainerHas.html">trainer has</a>
+  <div class="dropdown">
+    <button class="dropbtn">Search by...
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="type.html"> type </a>
+      <a href="region.html"> region </a>
+    </div>
+  </div>
+</div>
+
+<div id="browse" style="display: block">
+<p><a href="#" onClick="showAll()">Display all forms</a> </p>
+<p><strong>Browse Trainers</strong></p>
+<table id="trainerTable">
+  <tr>
+    <!-- <th><a href="#" onClick="newPerson()">New</a></th> -->
+    <th>Trainer ID</th>
+    <th>Trainer Name</th>
+    <th>Wins</th>
+    <th>Losses</th>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addTrainer">
+        <legend><strong>Add Trainer</strong></legend>
+          <fieldset class="fields">
+            <label for="tnameInput"> Trainer Name: </label> <input type="text" id="tnameInput" required>
+            <label for="winsInput"> Wins: </label> <input type="number" id="winsInput" required>
+            <label for="lossesInput"> Losses: </label> <input type="number" id="lossesInput" required>
+      </fieldset>
+          <input class="btn" type="submit" id="addtrainer" value="Add trainer">
+          <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+	</form> 
+</div><!-- insert -->
+<div id="insertpok">
+  <form method="POST" id="addtrainerHas">
+      <legend><strong>Add Trainers Pokemon</strong></legend>
+        <fieldset class="fields">
+          <label> Trainer Name </label> <select name="tname">
+            <option value="0">&nbsp;</option>
+            <option value="1">Ash</option>
+            <option value="2">Misty</option>
+            <option value="3">Broc</option>
+          </select>
+          <label> Pokemon Name </label> <select name="tname">
+            <option value="0">&nbsp;</option>
+            <option value="1">bulbasaur</option>
+            <option value="2">charmander</option>
+            <option value="3">squirtle</option>
+          </select>
+        </fieldset>
+        <input class="btn" type="submit" id="addtrainerHas" value="Add trainerHas">
+        <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+</form> 
+</div><!-- insert -->
+<p>&nbsp;</p>
+<div id="update">
+    <form method="POST" id="Updatetrainer">
+        <legend><strong>Update Trainer</strong></legend>
+          <fieldset class="fields">
+          <input type="hidden" name="personID" id="updatepersonID" value="1">
+          <label> ID: </label> 1
+            <label> Trainer ID</label> <input type="text" name="trainerID" value="1">
+            <label> Trainer Name </label> <select name="tname">
+              <option value="0">&nbsp;</option>
+              <option value="1">Ash</option>
+              <option value="2">Misty</option>
+              <option value="3">Broc</option>
+            </select>
+            <label> Wins </label> <input type="type" name="wins">
+            <label> loss </label> <input type="text" name="loss">
+      </fieldset>
+          <input class="btn" type="submit" id="UpdateSavePerson" value="Save Update Person">
+          <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+	</form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form method="POST" id="deletetrainer">
+      <legend><strong>Delete Trainer</strong></legend>
+        <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <input type="hidden" name="personID" id="deletepersonID" value="1">
+          <label><strong>ID:</strong></label> 1
+          <label> <strong>Name</strong> </label> Ash    
+        </fieldset>
+    <input class="btn" type="submit" id="DeletePerson" value="Delete Person">
+          <input class="btn" type="button" value="cancel" onClick="browsePeople()">
+  </form> 
+</div><!-- delete -->
+
+<script src="trainer.js"></script>
+
+</body>
+</html>
