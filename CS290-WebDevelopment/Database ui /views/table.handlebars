@@ -1,0 +1,46 @@
+<h2>add an exercise!!</h2>
+
+<form id="addExercise">
+    exercise name:
+    <input type="text" name="exercise" id="exercise"><br>
+    reps:
+    <input type="number" name="reps" id="reps "min="1"><br>
+    weight:
+    <input type="number" name="weight" id="weight "min="1"><br>
+    date:
+    <input type="date" name="date" id="date"><br>
+    check for unit lbs(default is kgs):
+    <input type="checkbox" name="unitCheck" id="unitCheck"><br>
+    <input type="submit" name="Add Exercise" value = "Add Exercise" id="addExerciseButton">
+</form><br>
+
+<table id="exerciseTable">
+    <tr>
+        <th>name</th>
+        <th>reps</th>
+        <th>weight</th>
+        <th>date</th>
+        <th>unit</th>
+        <th>update</th>
+        <th>delete</th>
+    </tr>
+    
+    {{#if results}}
+        {{#each results}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.reps}}</td>
+                <td>{{this.weight}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.lbs}}</td>
+                <td><a href="/updateTable?id={{this.id}}"><input type="button" value="Update"></a></td>
+                <td>
+                    <input type="button" name="delete" value="Delete" onClick="deleteData('dataTable',{{this.id}})">
+                    <input type="hidden" id="delete{{this.id}}">
+                </td>
+            </tr>
+        {{/each}}
+    {{/if}}
+</table>
+
+<script src="./script.js"></script>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<!--part one: the table -->
+<table>
+    <caption>Patients Data</caption>
+    <thread>
+        <tr>
+            <th>        </th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Height</th>
+            <th>Eye color</th>
+            <th>Hair color</th>
+        </tr>
+    </thread>
+      <tr>
+           <td><em>Saba </em></td>
+           <td>female</td>
+           <td>20</td>
+           <td>5'2</td>
+           <td>brown</td>
+           <td>black</td>
+      </tr>
+      <tr>
+           <td><em>Mason </em> </td>
+           <td>non-binary</td>
+           <td>21</td>
+           <td>5'10</td>
+           <td>hazel</td>
+           <td>black</td>
+      </tr>
+      <tr>
+           <td><em>Max </em> </td>
+           <td>male</td>
+           <td>23</td>
+           <td>5'8</td>
+           <td>green</td>
+           <td>brown</td>
+      </tr>
+      <tr>
+           <td><em>Karen </em></td>
+           <td>female</td>
+           <td>20</td>
+           <td>5'7</td>
+           <td>blue</td>
+           <td>blonde</td>
+      </tr>
+      <tr>
+           <td><em>Kanha </em></td>
+           <td>male</td>
+           <td>20</td>
+           <td>5'6</td>
+           <td>brown</td>
+           <td>brown</td>
+      </tr>
+      <tr>
+      <td colspan="2"><b>footer 1</b></td>
+      <td colspan="4"><b>footer 2</b></td>
+    </tr>
+  </table>
+
+  <!-- part two: the list -->
+  <dl>
+      <dt>Office name:</dt>
+      <dd>Los Angeles Hospital</dd>
+      <dt>Office number:</dt>
+      <dd>909-555-5073</dd>
+      <dt>Office hours:</dt>
+      <dd>24/7</dd>
+
+  </dl>
+
+  <!-- part three: the div -->
+  <div id = parent>
+    <div id = child>inner context</div>
+  </div>
+
+  <!-- part four: the form (get)-->
+  <br />
+  <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method = "get">
+    <feildset>
+        <legend>Get data:</legend>
+        <label>Full Name:
+              <input type="text" name="text_input" size="30" maxlength="50">
+          </label>
+          <br />
+          <label>ID number:
+              <input type="number" name="numerical_input" size="30" maxlength="10">
+          </label>
+          <br />
+          <label>Password:
+              <input type="text" name="password_input" size="30" maxlength="50">
+              </label>
+           <br />
+    </feildset>
+    <feildset>
+          <p>Pick a candy:
+              <br />
+              <label>
+                  <input type="radio" name="candy" value="Snickers" />Snickers</label>
+              <label>
+                  <input type="radio" name="candy" value="Skittles" />Skittles</label>
+              <label>
+                  <input type="radio" name="candy" value="Mentos" />Mentos</label>
+          </p>
+    </feildset>
+  </form>
+
+  <!-- part four: the form (post)-->
+  <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method = "post">
+    <feildset>
+        <legend>Post data:</legend>
+        <label>Full Name:
+              <input type="text" name="text_input" size="30" maxlength="50">
+          </label>
+          <br />
+          <label>ID number:
+              <input type="number" name="numerical_input" size="30" maxlength="10">
+          </label>
+          <br />
+          <label>Password:
+              <input type="text" name="password_input" size="30" maxlength="50">
+              </label>
+              <br />
+    </feildset>
+    <feildset>
+          <p>Pick a candy:
+              <br />
+              <label>
+                  <input type="radio" name="candy" value="Snickers" />Snickers</label>
+              <label>
+                  <input type="radio" name="candy" value="Skittles" />Skittles</label>
+              <label>
+                  <input type="radio" name="candy" value="Mentos" />Mentos</label>
+          </p>
+    </feildset>
+  </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <link rel="stylesheet" href="./style/style.css">
+    <head>
+      <meta charset="utf-8">
+      <title> Applications </title>
+    </head>
+    <body>
+      <header>  Welcome to the Applications forms!!  </header>
+      <nav>                  <!-- This is the bar that links the other web pages --> 
+        <div id= "navbar" class="container">
+          <ul>                 <!-- these are the Links to the pages -->
+            <li class="dropdown"><button class="dropbtn"><a href="home.html">✰ Home ✰</a></li></button>
+            <li class="dropdown"><button class="dropbtn"><a href="subpage2.html">✰ Menu items ✰</a></li></button>
+            <li class="dropdown"><button class="dropbtn"><a href="subpage3.html">✰ Find us ✰</a></li></button>
+            <li class="dropdown">
+              <button class="dropbtn"><a href="subpage1.html">✰ Join the team ✰</a></button>
+              <div class="dropdown-content">
+                <a href="subpage1.html" id = "1">Descriptions </a>
+                <a href="subpage4.html" id = "2">Application</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+     </nav>
+
+     <!-- This is a Job applications -->
+     <form action=" http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method = "post">
+        <fieldset>
+          <legend>✰ Job Application ✰ </legend>
+          <label> What is your legal name?
+            <input type="text" name="fullName" size="30" maxlength="50">
+          </label>
+          <br />
+          <label> Email:
+            <input type="text" name="email" size="30" maxlength="20">
+          </label>
+          <br />
+          <label> Phone number:
+            <input type="number" name="number" size="30" maxlength="11">
+          </label>
+          <br />
+          <label>List a few qualifications: 
+            <input type="text" name="qualifications" size="30" maxlength="80">
+          </label>
+          <br />
+          <p>Have you worked with us before:
+            <br />
+            <label>
+              <input type="radio" name="Worked_before" value="Yes" />Yes</label>
+            <label>
+              <input type="radio" name="anime" value="no" />NO!</label>
+          </p>
+          <button class="dropbtn" type ="submit" name = "worked_before">Apply Now!</button>
+        </fieldset>
+      </form>
+
+    </body>
+</html>

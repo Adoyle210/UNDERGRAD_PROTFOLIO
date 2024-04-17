@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/memPhotos.css">
+    <head>
+       <meta charset="utf-8">
+       <title> Menu items </title>
+    </head>
+    <header>  Our Menu!!  </header>
+    <body>
+      <nav>                  <!-- This is the bar that links the other web pages --> 
+        <div id= "navbar" class="container">
+          <ul>                 <!-- these are the Links to the pages -->
+            <li class="dropdown"><button class="dropbtn"><a href="home.html">✰ Home ✰</a></li></button>
+            <li class="dropdown"><button class="dropbtn"><a href="subpage2.html">✰ Menu items ✰</a></li></button>
+            <li class="dropdown"><button class="dropbtn"><a href="subpage3.html">✰ Find us ✰</a></li></button>
+            <li class="dropdown">
+              <button class="dropbtn"><a href="subpage1.html">✰ Join the team ✰</a></button>
+              <div class="dropdown-content">
+                <a href="subpage1.html" id = "1">Descriptions </a>
+                <a href="subpage4.html" id = "2">Application</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+     </nav>
+
+      <!-- The following are gallery folders of Pictures -->
+        <div id="myBtnContainer">
+          <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+          <button class="btn" onclick="filterSelection('drinks')"> drinks</button>
+          <button class="btn" onclick="filterSelection('desserts')"> Desserts</button>
+          <button class="btn" onclick="filterSelection('lunch')"> Lunch</button>
+        </div>
+
+        <!-- Portfolio Gallery Grid -->
+        <div class="row">
+          <div class="column drinks">
+            <div class="content">
+              <img src="./images/IMG_0025.JPG" alt="Matcha-Milk-Tea" style="width:100%">
+              <h4>Matcha Milk Tea</h4>
+            </div>
+          </div>
+          <div class="column drinks">
+            <div class="content">
+            <img src="./images/IMG_0028.JPG" alt="Latte" style="width:100%">
+              <h4>Latte</h4>
+            </div>
+          </div>
+          <div class="column drinks">
+            <div class="content">
+            <img src="./images/IMG_0027.JPG" alt="Iced-Coffee" style="width:100%">
+              <h4>Iced coffee</h4>
+            </div>
+          </div>
+          
+          <div class="column desserts">
+            <div class="content">
+              <img src="./images/IMG_0018.JPG" alt="Matcha-turtle" style="width:100%">
+              <h4>Matcha Turtle</h4>
+            </div>
+          </div>
+          <div class="column desserts">
+            <div class="content">
+            <img src="./images/IMG_0037.JPG" alt="meringues" style="width:100%">
+              <h4>Calcifer Meringues</h4>
+            </div>
+          </div>
+          <div class="column desserts">
+            <div class="content">
+            <img src="./images/IMG_0032.JPG" alt="cream-puff" style="width:100%">
+              <h4>Totro Cream Puffs</h4>
+            </div>
+          </div>
+          <div class="column desserts">
+            <div class="content">
+            <img src="./images/IMG_0024.JPG" alt="cookies" style="width:100%">
+              <h4>Assorted Cookies</h4>
+            </div>
+          </div>
+          <div class="column desserts">
+            <div class="content">
+            <img src="./images/IMG_0023.JPG" alt="frosted-cookies" style="width:100%">
+              <h4>Frosted Assorted Cookies</h4>
+            </div>
+          </div>
+          <div class="column desserts">
+            <div class="content">
+            <img src="./images/IMG_0031.JPG" alt="cupcakes" style="width:100%">
+              <h4>Totro cupcakes</h4>
+            </div>
+          </div>
+          <div class="column desserts">
+            <div class="content">
+            <img src="./images/IMG_0030.JPG" alt="cupcakes" style="width:100%">
+              <h4>Assorted Cupcakes</h4>
+            </div>
+          </div>
+
+          <div class="column lunch">
+            <div class="content">
+              <img src="./images/IMG_0020.JPG" alt="sushi" style="width: 100%">
+              <h4>Totro Sushi</h4>
+            </div>
+          </div>
+          <div class="column lunch">
+            <div class="content">
+            <img src="./images/IMG_0021.JPG" alt="bento-box" style="width:100%">
+              <h4>Totro Bento Box</h4>
+            </div>
+          </div>
+          <div class="column lunch">
+            <div class="content">
+            <img src="./images/IMG_0022.JPG" alt="bento-box" style="width:100%">
+              <h4>Cat Bus Bento Box</h4>
+            </div>
+          </div>
+          <div class="column lunch">
+            <div class="content">
+            <img src="./images/IMG_0034.JPG" alt="spam-musubi" style="width:100%">
+              <h4>Totro Spam Musubi</h4>
+            </div>
+          </div>
+        <!-- END GRID -->
+        </div>
+        <!-- END MAIN -->
+        </div>
+
+
+
+     <script src = ./script/filter.js> </script>
+</html>

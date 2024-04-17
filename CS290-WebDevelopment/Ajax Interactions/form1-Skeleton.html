@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weather: form 1</title>
+</head>
+<body>
+  <form>  <!--get input from user with a form-->
+      <fieldset>
+        <legend>Fill out the following for weather info!</legend>
+        <label>Country Code:  <input type="text" name="countryCode" id="code" size="2"> </label>
+        <br/>
+        <br/>
+        <legend>Please enter your zip code OR city name: </legend>
+        <br/>
+        <label>Zip Code: <input type="text" name="zipCode" id="zip" size="9"> </label>
+        <br/>
+        <label>City Name: <input type="text" name="cityName" id="city" size="30"> </label>
+        <br/>
+        <input type="submit" name="submit" id="getWeather">
+      </fieldset>
+  </form>
+
+  <table> <!-- displays weather info to see if request works-->
+      <caption>Weather Results: </caption>
+      <tr>
+        <th>Description</th>
+        <th>Result</th>
+      </tr>
+      <tr>
+        <td>Temperature:</td>
+        <td id="mainTemp"> </td>
+      </tr>
+      <tr>
+        <td>Humidity:</td>
+        <td id="weatherHumidity"> </td>
+      </tr>
+      <tr>
+        <td>Wind Speed:</td>
+        <td id="weatherSpeed"> </td>
+      </tr>
+       <!--<tr>
+        <td>Sunrise:</td>
+        <td id="sunriseStart"> </td>
+      </tr>-->
+  </table>
+
+  <script src="form1-getWeather.js"></script>
+</body>
+</html>
