@@ -1,6 +1,6 @@
 **Introduction**
 
-Welcome to my portfolio, which showcases a majority of the code I completed during my undergraduate studies at Ohio State University (OSU). This repository serves as a comprehensive collection of my programming projects, demonstrating my skills, knowledge, and growth throughout my academic journey.
+Welcome to my portfolio, which showcases a majority of the code I completed during my undergraduate studies at Oregon State University (OSU). This repository serves as a comprehensive collection of my programming projects, demonstrating my skills, knowledge, and growth throughout my academic journey.
 
 **Table of Contents**
 1. intro CS course work
