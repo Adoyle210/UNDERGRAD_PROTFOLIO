@@ -1,0 +1,104 @@
+Solutions to verifier.hs
+ b1 : 
+[(3,2),(4,1),(7,3),(12,5)]
+ b2 : 
+[(3,1),(7,2)]
+ b3 : 
+[(3,1),(4,1),(7,1),(10,1)]
+Exercise 1  :
+ a) test 1 - ins 5 []  
+[(5,1)]
+ a) test 2 - ins 5 b1 : 
+[(3,2),(4,1),(7,3),(12,5),(5,1)]
+ a) test 3 -  ins 7 b1 : 
+[(3,2),(4,1),(7,4),(12,5)]
+ b) test 1 -  del 5 [] 
+[]
+ b) test 2 - del 5 b1  
+[(3,2),(4,1),(7,3),(12,5)]
+ b) test 3 -  del 7 b1 
+[(3,2),(4,1),(7,2),(12,5)]
+ b) test 4 - del 7 b3 
+[(3,1),(4,1),(10,1)]
+ c) test 1 -  bag [1,2]  
+[(2,1),(1,1)]
+ c) test 2 -  bag [1,2,1,3,5,2]  
+[(2,2),(5,1),(3,1),(1,2)]
+ d) test 1 -  subbag b1 []  
+False
+ d) test 2 -  subbag b1 b2  
+False
+ d) test 3 -  subbag b2 b1  
+True
+ e) test 1 -  isSet b1 
+False
+ e) test 2 -  isSet b2 
+False
+ e) test 3 -  isSet b3 
+True
+ f) test 1 -  size b1 
+11
+ f) test 2 -  size b2 
+3
+ f) test 3 -  size b3 
+4
+ g : 
+[(1,2),(1,3),(2,3),(2,4),(3,4)]
+ h : 
+[(1,2),(1,3),(2,1),(3,2),(4,4)]
+ g2 : 
+[(1,5),(1,7),(2,5),(7,2)]
+ 
+Exercise 2  :
+ a) test 1 - nodes g
+[1,2,3,4]
+ a) test 2 - nodes h
+[1,2,3,4]
+ a) test 3 - nodes g2
+[1,2,5,7]
+ b) test 1 - suc 4 g
+[]
+ b) test 2 - suc 2 g
+[3,4]
+ b) test 3 - suc 4 h
+[4]
+ c) test 1 - detach 4 g
+[(1,2),(1,3),(2,3)]
+ c) test 2 - detach 3 g
+[(1,2),(2,4)]
+ c) test 2 - detach 3 h
+[(1,2),(2,1),(4,4)]
+ d) test 1 - cyc 4 
+[(1,2),(2,3),(3,4),(4,1)]
+ 
+Exercise 3   :
+ p1 : 
+Pt (4,3)
+ c1 : 
+Circle (5,5) 7
+ r1 : 
+Rect (3,3) 5 3
+ a) test 1 - width Point 
+0
+ a) test 2 - width Circle 
+14
+ a) test 3 - width Rect 
+5
+ b) test 1 - bbox Point 
+((4,3),(4,3))
+ b) test 2 - bbox Circle 
+((-2,-2),(12,12))
+ b) test 3 - bbox Rect 
+((3,3),(8,6))
+ c) test 1 - minX Point 
+4
+ c) test 2 - minX Circle 
+-2
+ c) test 3 - minX Rect 
+3
+ d) test 1 - move Point (3,-2)
+Pt (7,1)
+ d) test 2 - move Circle (2,4)
+Circle (7,9) 7
+ d) test 3 - move Rect (-1,3)
+Rect (2,6) 5 3
