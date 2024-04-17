@@ -18,7 +18,7 @@ Welcome to my portfolio, which showcases a majority of the code I completed duri
    
 
 
-**Conclusion **
+**Conclusion**
 
 This portfolio showcases a diverse range of projects that I have completed during my undergraduate studies at OSU. Each project demonstrates my ability to tackle complex problems, apply various programming languages and frameworks, and deliver high-quality solutions. I am excited to continue expanding my skills and exploring new frontiers in the field of computer science.
 If you have any questions or would like to discuss my work further, please feel free to reach out to me.
