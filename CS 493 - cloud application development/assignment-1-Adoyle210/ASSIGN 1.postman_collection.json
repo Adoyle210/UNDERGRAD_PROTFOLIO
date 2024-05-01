@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "2108bef4-ee63-4559-9e49-6559b9518959",
+		"name": "ASSIGN 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34417879"
+	},
+	"item": [
+		{
+			"name": "GET /businesses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/businesses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"businesses"
+					]
+				},
+				"description": "Get a list of all businesses"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /photos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/photos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos"
+					]
+				},
+				"description": "Get a list of all businesses"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reviews"
+					]
+				},
+				"description": "Get a list of all businesses"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /businesses/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/businesses/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"businesses",
+						"2"
+					]
+				},
+				"description": "Get details of a specific business"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /businesses/user/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/businesses/user/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"businesses",
+						"user",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /reviews/user/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reviews/user/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reviews",
+						"user",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /photos/user/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/photos/user/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos",
+						"user",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /businesses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bodhi\",\n    \"address\": \"500 SW 2rd St.\",\n    \"city\": \"Corvallis\",\n    \"state\": \"OR\",\n    \"zip\": \"97333\",\n    \"phone\": \"541-286-4734\",\n    \"category\": \"Restaurant\",\n    \"subcategory\": \"Cafe\",\n    \"website\": \"https://bodhibakery.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/businesses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"businesses"
+					]
+				},
+				"description": "Create a new business (ex. Bodhi)"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /reviews",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userid\": 25,\n    \"businessid\": 8,\n    \"dollars\": 1,\n    \"stars\": 4,\n    \"review\": \"good food\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reviews"
+					]
+				},
+				"description": "Get a list of all businesses"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /photos/{user id, business id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"review\": \"Super Yum fr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/photos/7/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos",
+						"7",
+						"8"
+					]
+				},
+				"description": "Get a list of all businesses"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /businesses/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bodhi\",\n    \"address\": \"500 SW 2rd St.\",\n    \"city\": \"Corvallis\",\n    \"state\": \"OR\",\n    \"zip\": \"97333\",\n    \"phone\": \"541-286-4734\",\n    \"category\": \"Restaurant\",\n    \"subcategory\": \"Bakery\",\n    \"website\": \"https://bodhibakery.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/businesses/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"businesses",
+						"18"
+					]
+				},
+				"description": "Update an existing new business"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /photos/{user id, business id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"review\": \"Super Yum fr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/photos/7/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos",
+						"7",
+						"8"
+					]
+				},
+				"description": "Get a list of all businesses"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /reviews(userid, businessid)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dollars\": 2,\n    \"stars\": 4.5,\n    \"review\": \"How many fasteners can one room hold??????\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/reviews/25/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reviews",
+						"25",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /businesses/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/businesses/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"businesses",
+						"7"
+					]
+				},
+				"description": "Get a list of all businesses"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /photos/{user id, business id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/photos/7/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos",
+						"7",
+						"8"
+					]
+				},
+				"description": "Get a list of all businesses"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /review(userid, businessid)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reviews/25/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reviews",
+						"25",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
