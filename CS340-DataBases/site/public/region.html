@@ -1,0 +1,96 @@
+<html>
+<head>
+  <title>REGION</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<h1>Search By Region</h1>
+<div class="navbar">
+    <a href="pokedex.html">pokedex</a>
+    <a href="trainer.html">trainers</a>
+    <a href="trainerHas.html">trainer has</a>
+    <div class="dropdown">
+      <button class="dropbtn">Search by...
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="type.html"> type </a>
+        <a href="region.html"> region </a>
+      </div>
+    </div>
+</div>
+
+
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by region..">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">region</th>
+    <th style="width:40%;">Pokemon</th>
+  </tr>
+  <tr>
+    <td>kanto, johto</td>
+    <td>bulbasaur</td>
+  </tr>
+  <tr>
+    <td>kanto, johto</td>
+    <td>ivysaur</td>
+  </tr>
+  <tr>
+    <td>kanto, johto</td>
+    <td>venusaur</td>
+  </tr>
+  <tr>
+    <td>johto</td>
+    <td>charmander</td>
+  </tr>
+  <tr>
+    <td>johto</td>
+    <td>charmeleon</td>
+  </tr>
+  <tr>
+    <td>johto</td>
+    <td>charizard</td>
+  </tr>
+  <tr>
+    <td>kanto</td>
+    <td>squirtle</td>
+  </tr>
+  <tr>
+    <td>kanto</td>
+    <td>wartortle</td>
+  </tr>
+  <tr>
+    <td>kanto</td>
+    <td>blastoise</td>
+  </tr>
+</table>
+
+
+
+
+<!-- THIS IS THE SCRIPT TO RUN THE FILTERING -->
+<script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
